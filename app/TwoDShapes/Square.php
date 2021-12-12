@@ -1,11 +1,8 @@
 <?php
-
 namespace App\TwoDShapes;
 
 /**
  * Description of Square
- *
- * @author csabi
  */
 class Square {
     
@@ -14,6 +11,11 @@ class Square {
     public function __construct($length) 
     {
         $this->length = $length;
+    }
+    
+    public function getLength()
+    {
+        return $this->length;
     }
 
 }

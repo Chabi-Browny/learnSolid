@@ -1,18 +1,36 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace App;
+
+use App\TwoDShapes\Circle;
+use App\TwoDShapes\Square;
 
 /**
  * Description of AreaCalculator
- *
- * @author csabi
  */
 class AreaCalculator {
-    //put your code here
+    
+    protected $shapes;
+    
+    public function __construct($shapes = []) 
+    {
+        $this->shapes = $shapes;
+    }
+
+    public function sum()
+    {
+        foreach( $this->shapes as $shape )
+        {
+            if ($shape instanceof Circle)
+            {
+                $area[] = pi() * pow($shape->getRadius(), 2);
+            }
+            else if ($shape instanceof Square)
+            {
+                $area[] = pow($shape->getLength(), 2);
+            }
+        }
+        
+        return array_sum($area);
+    }
+    
 }

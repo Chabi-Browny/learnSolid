@@ -1,11 +1,8 @@
 <?php
-
 namespace App\TwoDShapes;
 
 /**
  * Description of Circle
- *
- * @author csabi
  */
 class Circle {
     
@@ -16,5 +13,9 @@ class Circle {
         $this->radius = $radius;
     }
 
+    public function getRadius()
+    {
+        return $this->radius;
+    }
     
 }
