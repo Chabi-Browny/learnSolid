@@ -1,10 +1,11 @@
 <?php
 namespace App\TwoDShapes;
 
+use \App\Contracts\ShapeInterface;
 /**
  * Description of Circle
  */
-class Circle {
+class Circle implements ShapeInterface{
     
     protected $radius;
     
@@ -16,6 +17,11 @@ class Circle {
     public function getRadius()
     {
         return $this->radius;
+    }
+    
+    public function area()
+    {
+        return pi() * pow( $this->getRadius(), 2);
     }
     
 }

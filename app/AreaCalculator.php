@@ -1,8 +1,8 @@
 <?php
 namespace App;
 
-use App\TwoDShapes\Circle;
-use App\TwoDShapes\Square;
+use \App\Contracts\ShapeInterface;
+use \App\Exceptions\AreaCalclulatorInvalidException;
 
 /**
  * Description of AreaCalculator
@@ -20,14 +20,13 @@ class AreaCalculator {
     {
         foreach( $this->shapes as $shape )
         {
-            if ($shape instanceof Circle)
+            if ( $shape instanceof ShapeInterface )
             {
-                $area[] = pi() * pow($shape->getRadius(), 2);
+                $area[] = $shape->area();
+                continue;
             }
-            else if ($shape instanceof Square)
-            {
-                $area[] = pow($shape->getLength(), 2);
-            }
+            
+            throw new AreaCalclulatorInvalidException();
         }
         
         return array_sum($area);

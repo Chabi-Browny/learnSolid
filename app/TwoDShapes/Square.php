@@ -1,10 +1,11 @@
 <?php
 namespace App\TwoDShapes;
 
+use \App\Contracts\ShapeInterface;
 /**
  * Description of Square
  */
-class Square {
+class Square implements ShapeInterface{
     
     protected $length;
     
@@ -16,6 +17,11 @@ class Square {
     public function getLength()
     {
         return $this->length;
+    }
+    
+    public function area()
+    {
+        return pow($this->getLength(), 2);
     }
 
 }
