@@ -13,15 +13,10 @@ class Circle implements ShapeInterface{
     {
         $this->radius = $radius;
     }
-
-    public function getRadius()
-    {
-        return $this->radius;
-    }
     
     public function area()
     {
-        return pi() * pow( $this->getRadius(), 2);
+        return pi() * pow( $this->radius, 2);
     }
     
 }

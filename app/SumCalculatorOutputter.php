@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\AreaCalculator;
+use App\Calculators\AreaCalculator;
 /**
  * Description of SumCalculatorOutputter
  * 

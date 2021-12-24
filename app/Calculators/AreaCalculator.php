@@ -1,5 +1,6 @@
 <?php
-namespace App;
+
+namespace App\Calculators;
 
 use \App\Contracts\ShapeInterface;
 use \App\Exceptions\AreaCalclulatorInvalidException;
