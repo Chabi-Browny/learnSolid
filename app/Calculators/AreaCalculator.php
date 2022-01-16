@@ -2,13 +2,14 @@
 
 namespace App\Calculators;
 
-use \App\Contracts\ShapeInterface;
-use \App\Exceptions\AreaCalclulatorInvalidException;
+use App\Calculators\Prototype\AbstractCalculator;
+use App\Contracts\ManageShapeInterface;
+use App\Exceptions\AreaCalclulatorInvalidException;
 
 /**
  * Description of AreaCalculator
  */
-class AreaCalculator {
+class AreaCalculator extends AbstractCalculator{
     
     protected $shapes;
     
@@ -21,9 +22,9 @@ class AreaCalculator {
     {
         foreach( $this->shapes as $shape )
         {
-            if ( $shape instanceof ShapeInterface )
+            if ( $shape instanceof ManageShapeInterface )
             {
-                $area[] = $shape->area();
+                $area[] = $shape->calculate();
                 continue;
             }
             

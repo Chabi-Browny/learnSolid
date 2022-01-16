@@ -37,6 +37,7 @@ $volumes = new VolumeCalculator($solidShapes);
 $outputer = new SumCalculatorOutputter($areas);
 $volumeOutputer = new SumCalculatorOutputter($volumes);
 
+echo 'areas: <br>';
 print_r($outputer->JSONOutput());
 echo '<br>';
 print_r($outputer->HTMLOutput());

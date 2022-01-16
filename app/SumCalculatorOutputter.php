@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Calculators\AreaCalculator;
+use App\Calculators\Prototype\AbstractCalculator;
 /**
  * Description of SumCalculatorOutputter
  * 
@@ -11,7 +11,7 @@ class SumCalculatorOutputter {
     
     protected $calculator;
     
-    public function __construct( AreaCalculator $calculator) 
+    public function __construct( AbstractCalculator $calculator) 
     {
         $this->calculator = $calculator;
     }
