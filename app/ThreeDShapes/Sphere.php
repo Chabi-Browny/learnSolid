@@ -3,10 +3,11 @@
 namespace App\ThreeDShapes;
 
 use App\Contracts\SolidShapeInterface;
+use App\Contracts\ManageRendererInterface;
 /**
  * Description of Shapre
  */
-class Shapre implements SolidShapeInterface{
+class Sphere implements SolidShapeInterface, ManageRendererInterface{
     
     protected $radius;
     
@@ -28,6 +29,11 @@ class Shapre implements SolidShapeInterface{
     public function calculate()
     {
         return $this->area();
+    }
+    
+    public function renderPrepare()
+    {
+        return "simple_sphere";
     }
 
 }

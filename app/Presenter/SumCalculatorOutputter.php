@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Presenter;
 
 use App\Calculators\Prototype\AbstractCalculator;
 /**

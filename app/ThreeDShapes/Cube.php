@@ -4,10 +4,11 @@ namespace App\ThreeDShapes;
 
 use App\Contracts\ManageShapeInterface;
 use App\Contracts\SolidShapeInterface;
+use App\Contracts\ManageRendererInterface;
 /**
  * Description of Cube
  */
-class Cube implements SolidShapeInterface, ManageShapeInterface{
+class Cube implements SolidShapeInterface, ManageShapeInterface, ManageRendererInterface{
     
     protected $length;
     
@@ -29,6 +30,11 @@ class Cube implements SolidShapeInterface, ManageShapeInterface{
     public function calculate()
     {
         return $this->area();
+    }
+    
+    public function renderPrepare()
+    {
+        return "simple_cube";
     }
     
 }
