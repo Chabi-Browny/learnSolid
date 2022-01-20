@@ -3,10 +3,11 @@ namespace App\TwoDShapes;
 
 use App\Contracts\ShapeInterface;
 use App\Contracts\ManageShapeInterface;
+use App\Contracts\ManageRendererInterface;
 /**
  * Description of Square
  */
-class Square implements ShapeInterface, ManageShapeInterface{
+class Square implements ShapeInterface, ManageShapeInterface, ManageRendererInterface{
     
     protected $length;
     
@@ -28,6 +29,11 @@ class Square implements ShapeInterface, ManageShapeInterface{
     public function calculate()
     {
         return $this->area();
+    }
+
+    public function renderPrepare() 
+    {
+        return "simple_square";
     }
 
 }
