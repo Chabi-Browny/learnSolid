@@ -2,32 +2,32 @@
 
 namespace App\Calculators;
 
-use App\Calculators\AreaCalculator;
+use App\Calculators\Prototype\AbstractCalculator;
 use App\Contracts\SolidShapeInterface;
 use App\Exceptions\VolumeCalclulatorInvalidException;
 /**
  * Description of VolumeCalculator
  */
-class VolumeCalculator extends AreaCalculator{
+class VolumeCalculator extends AbstractCalculator{
     
-    protected $solidShapes;
+    protected $shapes;
     
     public function __construct($solidShapes = [])
     {
         parent::__construct($solidShapes);
-        $this->solidShapes = $solidShapes;
+        $this->shapes = $solidShapes;
     }
 
     public function sum()
     {
         $summData = [];
-        if( !empty($this->solidShapes) )
+        if( !empty($this->shapes) )
         {
-            foreach( $this->solidShapes as $sShape )
+            foreach( $this->shapes as $solidShape )
             {
-                if( $sShape instanceof SolidShapeInterface)
+                if( $solidShape instanceof SolidShapeInterface)
                 {
-                    $summData[] = $sShape->volume();
+                    $summData[] = $solidShape->volume();
                     continue;
                 }
                 

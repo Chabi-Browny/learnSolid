@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 declare (strict_types = 1);
 
 ini_set('display_errors','1');
@@ -12,11 +11,12 @@ require_once('system'.DS.'autoload.php');
 use App\TwoDShapes\Circle;
 use App\TwoDShapes\Square;
 use App\ThreeDShapes\Cube;
-use App\ThreeDShapes\Shapre;
+use App\ThreeDShapes\Sphere;
 
 use App\Calculators\AreaCalculator;
 use App\Calculators\VolumeCalculator;
-use App\SumCalculatorOutputter;
+use App\Presenter\SumCalculatorOutputter;
+use App\Presenter\ShapeRenderer;
 
 try
 {
@@ -28,7 +28,7 @@ $shapes = [
 
 $solidShapes = [
     new Cube(2),
-    new Shapre(5)
+    new Sphere(5)
 ];
 
 $areas = new AreaCalculator($shapes);
@@ -37,6 +37,10 @@ $volumes = new VolumeCalculator($solidShapes);
 $outputer = new SumCalculatorOutputter($areas);
 $volumeOutputer = new SumCalculatorOutputter($volumes);
 
+$renderShapes= new ShapeRenderer($shapes[0]);
+$renderSolidShapes = new ShapeRenderer($solidShapes[1]);
+
+echo 'areas: <br>';
 print_r($outputer->JSONOutput());
 echo '<br>';
 print_r($outputer->HTMLOutput());
@@ -44,6 +48,11 @@ echo '<br> volumes: <br>';
 print_r($volumeOutputer->JSONOutput());
 echo '<br>';
 print_r($volumeOutputer->HTMLOutput());
+
+echo '<br>render: <br>';
+$renderShapes->render();
+echo '<br>';
+$renderSolidShapes->render();
     
 }
 catch(\Exception $error)
